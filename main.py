@@ -1,6 +1,5 @@
 import numpy as np
 import csv
-
 import iris_NN
 
 csv_reader = csv.reader(open('iris.csv'))
@@ -8,7 +7,6 @@ csv_reader = csv.reader(open('iris.csv'))
 
 def sigmoid(x):
     return 1 / (1 + np.exp(-x))
-
 
 
 if __name__ == '__main__':
@@ -31,5 +29,3 @@ if __name__ == '__main__':
     my_NN.train()
     my_NN.test()
     my_NN.predict(my_NN.X_test)
-
-

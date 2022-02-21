@@ -12,11 +12,11 @@ def loss_function(a, y):
 
 class iris_NN:
     def __init__(self, iris_data):
-        self.__lr = 0.1  # learning rate
-        self.__iris_data = iris_data
+        self.lr = 0.1  # learning rate
+        self.iris_data = iris_data
 
-        X = np.array(self.__iris_data[0:, 0:4])
-        y = np.array([self.__iris_data[0:, 4]])
+        X = np.array(self.iris_data[0:, 0:4])
+        y = np.array([self.iris_data[0:, 4]])
         y = y.T
         X = X / 8 * 0.99 + 0.01  # 归一化
         X_train, X_test, self.y_train, self.y_test = train_test_split(X, y)
@@ -47,7 +47,7 @@ class iris_NN:
         B1 = np.zeros((8, 1))
         B2 = np.zeros((3, 1))
 
-        lr = 0.1
+
 
         for i in range(5000):
             out1 = np.dot(W1, self.X_train) + B1
@@ -63,10 +63,10 @@ class iris_NN:
             dW1 = 1 / 112 * np.dot(dZ1, self.X_train.T)
             dB1 = 1 / 112 * np.sum(dZ1, axis=1, keepdims=True)
 
-            W2 -= lr * dW2
-            B2 -= lr * dB2
-            W1 -= lr * dW1
-            B1 -= lr * dB1
+            W2 -= self.lr * dW2
+            B2 -= self.lr * dB2
+            W1 -= self.lr * dW1
+            B1 -= self.lr * dB1
 
         self.W2 = W2
         self.B2 = B2
