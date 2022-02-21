@@ -253,9 +253,6 @@ if __name__ == '__main__':
     my_NN.train()
     my_NN.test()
     my_NN.predict(my_NN.X_test)
-    y_test_true = my_NN.y_test
-    y_test_true = np.array(y_test_true, dtype='int')
-    print(y_test_true.T)
 ```
 
 ## 结语
